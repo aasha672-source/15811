@@ -1,51 +1,31 @@
-import NotificationCard from './components/NotificationCard'
-import { notifications } from './data/notifications'
+import { NavLink, Route, Routes } from 'react-router-dom'
 import './App.css'
+import AllNotifications from './pages/AllNotifications'
+import NotFound from './pages/NotFound'
+import PriorityInbox from './pages/PriorityInbox'
 
 function App() {
-  const unreadNotifications = notifications.filter(
-    (notification) => !notification.isRead,
-  )
-
-  const priorityNotifications = [...unreadNotifications]
-    .sort((a, b) => b.priorityScore - a.priorityScore)
-    .slice(0, 10)
-
   return (
     <main className="app">
-      <section className="inbox-container">
-        <header className="app-header">
-          <h1>Campus Notification System</h1>
-          <p className="subtitle">Priority Inbox - Top 10 Important Unread Notifications</p>
+      <div className="app-shell">
+        <header className="site-header">
+          <div>
+            <h1>Campus Notification System</h1>
+            <p className="subtitle">Stage 2 - Priority Inbox with Navigation</p>
+          </div>
+
+          <nav className="site-nav" aria-label="Main navigation">
+            <NavLink to="/">Priority Inbox</NavLink>
+            <NavLink to="/notifications">All Notifications</NavLink>
+          </nav>
         </header>
 
-        <section className="summary" aria-label="Notification summary">
-          <div className="summary-box">
-            <span className="summary-label">Total Notifications</span>
-            <strong>{notifications.length}</strong>
-          </div>
-          <div className="summary-box">
-            <span className="summary-label">Unread Notifications</span>
-            <strong>{unreadNotifications.length}</strong>
-          </div>
-        </section>
-
-        <section className="priority-section">
-          <div className="section-heading">
-            <h2>Priority Inbox</h2>
-            <p>Top 10 Important Unread Notifications</p>
-          </div>
-
-          <div className="notification-list">
-            {priorityNotifications.map((notification) => (
-              <NotificationCard
-                key={notification.id}
-                notification={notification}
-              />
-            ))}
-          </div>
-        </section>
-      </section>
+        <Routes>
+          <Route path="/" element={<PriorityInbox />} />
+          <Route path="/notifications" element={<AllNotifications />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </main>
   )
 }

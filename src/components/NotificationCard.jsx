@@ -6,15 +6,22 @@ function formatDate(timestamp) {
   }).format(new Date(timestamp))
 }
 
-function NotificationCard({ notification }) {
-  const { title, eventType, timestamp, priorityScore } = notification
+function NotificationCard({ notification, showStatus = false }) {
+  const { title, eventType, timestamp, isRead, priorityScore } = notification
   const badgeClassName = `badge badge-${eventType.toLowerCase()}`
 
   return (
-    <article className="notification-card">
+    <article className={isRead ? 'notification-card read' : 'notification-card'}>
       <div className="card-header">
         <h3>{title}</h3>
-        <span className={badgeClassName}>{eventType}</span>
+        <div className="card-badges">
+          <span className={badgeClassName}>{eventType}</span>
+          {showStatus && (
+            <span className={isRead ? 'status read-status' : 'status unread-status'}>
+              {isRead ? 'Read' : 'Unread'}
+            </span>
+          )}
+        </div>
       </div>
 
       <div className="card-details">
