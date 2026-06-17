@@ -1,0 +1,184 @@
+.app {
+  min-height: 100vh;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 40px 16px;
+}
+
+.inbox-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.app-header {
+  margin-bottom: 28px;
+}
+
+.app-header h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 18px;
+  color: #4b5563;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.summary-box {
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.06);
+}
+
+.summary-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.summary-box strong {
+  font-size: 28px;
+  color: #111827;
+}
+
+.priority-section {
+  margin-top: 8px;
+}
+
+.section-heading {
+  margin-bottom: 18px;
+}
+
+.section-heading h2 {
+  margin: 0 0 4px;
+  font-size: 26px;
+  color: #111827;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.notification-card {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.1);
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #111827;
+}
+
+.badge {
+  display: inline-block;
+  flex-shrink: 0;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.badge-placement {
+  color: #047857;
+  background: #d1fae5;
+}
+
+.badge-internship {
+  color: #1d4ed8;
+  background: #dbeafe;
+}
+
+.badge-exam {
+  color: #c2410c;
+  background: #ffedd5;
+}
+
+.badge-academic {
+  color: #7e22ce;
+  background: #f3e8ff;
+}
+
+.badge-general {
+  color: #4b5563;
+  background: #f3f4f6;
+}
+
+.card-details {
+  display: grid;
+  gap: 6px;
+}
+
+.card-details p {
+  margin: 0;
+  color: #374151;
+}
+
+.card-details span {
+  font-weight: 600;
+  color: #111827;
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding: 28px 12px;
+  }
+
+  .app-header h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .summary {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
